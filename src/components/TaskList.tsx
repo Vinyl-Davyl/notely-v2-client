@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import TaskForm from './TaskForm';
-import TaskMain from './Task';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-import loadingImg from '../assets/loader.gif';
-import { URL } from '../App';
-import { Task } from '../interfaces'
-
+import React, { useEffect, useState } from "react";
+import TaskForm from "./TaskForm";
+import TaskMain from "./Task";
+import { toast } from "react-toastify";
+import axios from "axios";
+import loadingImg from "../assets/loader.gif";
+import { URL } from "../App";
+import { Task } from "../interfaces";
 
 const TaskList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [taskID, setTaskID] = useState<string>('');
-  const [formData, setFormData] = useState<{ name: string; completed: boolean }>({
-    name: '',
+  const [taskID, setTaskID] = useState<string>("");
+  const [formData, setFormData] = useState<{
+    name: string;
+    completed: boolean;
+  }>({
+    name: "",
     completed: false,
   });
 
@@ -44,13 +46,13 @@ const TaskList: React.FC = () => {
 
   const createTask = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name === '') {
-      return toast.error('Input field cannot be empty!');
+    if (name === "") {
+      return toast.error("Input field cannot be empty!");
     }
     try {
       await axios.post(`${URL}/api/v1/tasks`, formData);
-      toast.success('Task added successfully');
-      setFormData({ name: '', completed: false });
+      toast.success("Task added successfully");
+      setFormData({ name: "", completed: false });
       getTasks();
     } catch (error: any) {
       toast.error(error.message);
@@ -79,12 +81,12 @@ const TaskList: React.FC = () => {
 
   const updateTask = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name === '') {
-      return toast.error('Input field cannot be empty.');
+    if (name === "") {
+      return toast.error("Input field cannot be empty.");
     }
     try {
       await axios.put(`${URL}/api/v1/tasks/${taskID}`, formData);
-      setFormData({ name: '', completed: false });
+      setFormData({ name: "", completed: false });
       setIsEditing(false);
       getTasks();
     } catch (error: any) {
@@ -99,7 +101,7 @@ const TaskList: React.FC = () => {
     };
     try {
       await axios.put(`${URL}/api/v1/tasks/${task._id}`, newFormData);
-      toast.success('Task Completed');
+      toast.success("Task Completed");
       getTasks();
     } catch (error: any) {
       toast.error(error.message);
@@ -107,17 +109,23 @@ const TaskList: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Task Manager</h2>
-      <TaskForm name={name} handleInputChange={handleInputChange} createTask={createTask} isEditing={isEditing} updateTask={updateTask} />
+    <div className="main-task">
+      <h2>Notely .v2</h2>
+      <TaskForm
+        name={name}
+        handleInputChange={handleInputChange}
+        createTask={createTask}
+        isEditing={isEditing}
+        updateTask={updateTask}
+      />
 
       {tasks.length > 0 && (
         <div className="--flex-between --pb">
           <p>
-            <b>Total Tasks:</b> {tasks.length}
+            <b>Total Notes:</b> {tasks.length}
           </p>
           <p>
-            <b>Completed Tasks:</b> {completedTasks.length}
+            <b>Completed:</b> {completedTasks.length}
           </p>
         </div>
       )}
@@ -129,7 +137,7 @@ const TaskList: React.FC = () => {
         </div>
       )}
       {!isLoading && tasks.length === 0 ? (
-        <div className="--py">No task added. Please add a task</div>
+        <div className="--py">No Note added. Please add a Note</div>
       ) : (
         <>
           {tasks.map((task, index) => (
@@ -149,5 +157,3 @@ const TaskList: React.FC = () => {
 };
 
 export default TaskList;
-
-

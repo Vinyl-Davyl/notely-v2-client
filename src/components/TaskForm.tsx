@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent } from "react";
 
 interface TaskFormProps {
   createTask: (e: FormEvent<HTMLFormElement>) => void;
@@ -16,18 +16,18 @@ const TaskForm: React.FC<TaskFormProps> = ({
   updateTask,
 }) => {
   return (
-    <form className='task-form' onSubmit={isEditing ? updateTask : createTask}>
+    <form className="task-form" onSubmit={isEditing ? updateTask : createTask}>
       <input
         type="text"
-        placeholder='Add a Task'
-        name='name'
+        placeholder="Add a Note"
+        name="name"
         value={name}
         onChange={handleInputChange}
       />
 
-      <button type='submit'>
+      <button type="submit">
         {/* If isEditing is true, edit, else add */}
-        {isEditing ? 'Edit' : 'Add'}
+        {isEditing ? "Edit" : "Add"}
       </button>
     </form>
   );
