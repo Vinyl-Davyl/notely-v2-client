@@ -124,25 +124,6 @@ p {
   line-height: 1.3;
   color: var(--color-dark);
 }
-.--text-xl {
-  font-size: 4.5rem;
-}
-.--text-lg {
-  font-size: 4rem;
-}
-.--text-md {
-  font-size: 3rem;
-}
-.--text-sm {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-.--text-p {
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.3;
-  color: var(--color-dark);
-}
 
 /* Text Color */
 .--text-light {
@@ -176,70 +157,6 @@ p {
   overflow: hidden;
 }
 
-/* Margin */
-.--m {
-  margin: 1rem;
-}
-.--ml {
-  margin-left: 1rem;
-}
-.--mr {
-  margin-right: 1rem;
-}
-
-.--mb {
-  margin-bottom: 1rem;
-}
-
-.--my {
-  margin: 1rem 0;
-}
-.--mx {
-  margin: 0 1rem;
-}
-
-.--m2 {
-  margin: 2rem;
-}
-
-.--ml2 {
-  margin-left: 2rem;
-}
-.--mr2 {
-  margin-right: 2rem;
-}
-
-.--mb2 {
-  margin-bottom: 2rem;
-}
-
-.--my2 {
-  margin: 2rem 0;
-}
-
-.--mx2 {
-  margin: 0 2rem;
-}
-
-/* Padding */
-.--p {
-  padding: 1rem;
-}
-.--p2 {
-  padding: 2rem;
-}
-.--py {
-  padding: 1rem 0;
-}
-.--py2 {
-  padding: 2rem 0;
-}
-.--px {
-  padding: 0 1rem;
-}
-.--px2 {
-  padding: 0 2rem;
-}
 
 .--btn {
   font-size: 1.6rem;
@@ -293,12 +210,7 @@ p {
 .--bg-dark {
   background: var(--color-dark);
 }
-.--bg-primary {
-  background: var(--color-primary);
-}
-.--bg-success {
-  background: var(--color-success);
-}
+
 .--bg-grey {
   background: var(--color-grey);
 }
@@ -343,66 +255,6 @@ p {
   }
 }
 
-.--block {
-  display: block;
-}
-.--inline-block {
-  display: inline-block;
-}
-
-.--width-100 {
-  width: 100%;
-}
-
-.--width-500px {
-  width: 100%;
-  max-width: 500px;
-}
-
-.--line {
-  position: relative;
-}
-.--line::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 5rem;
-  height: 3px;
-  margin-bottom: 1rem;
-
-  background: rgb(217, 8, 170);
-  background: linear-gradient(
-    135deg,
-    rgba(163, 1, 191, 1) 44%,
-    rgba(217, 8, 170, 1) 57%
-  );
-}
-
-.--list-style-none {
-  list-style: none;
-}
-
-.--profile-img {
-  width: 6rem;
-  height: 6rem;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-}
-
-a {
-  font-size: 1.4rem;
-  color: var(--dark-blue);
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-a:hover {
-  color: var(--color-dark);
-  font-size: 1.5rem;
-}
-
 /* TASK APP CSS */
 .app {
   width: 100%;
@@ -416,7 +268,7 @@ a:hover {
 
 .task-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px;
   height: auto;
   background-color: #fff;
   border: 1px solid transparent;
@@ -445,14 +297,14 @@ a:hover {
   height: 4rem;
   font-size: 1.8rem;
   cursor: pointer;
-  background-color: var(--color-purple);
+  background-color: var(--color-dark);
   color: #fff;
   border: none;
   transition: all 0.3s;
 }
 
 .task-form button:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-purple);
 }
 
 .task {
@@ -462,7 +314,7 @@ a:hover {
   align-items: center;
   width: 100%;
   background-color: #eee;
-  padding: 10px;
+  padding: 35px 20px;
   margin: 7px 0;
   animation: slide-in ease 0.5s;
 }
@@ -485,7 +337,7 @@ a:hover {
   top: 0;
   left: 0;
   height: 100%;
-  width: 5px;
+  width: 2.5px;
   background-color: var(--color-danger);
 }
 
@@ -499,12 +351,12 @@ a:hover {
   top: 0;
   left: 0;
   height: 100%;
-  width: 5px;
+  width: 2.5px;
   background-color: var(--color-success);
 }
 
 .task-icons {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 .task-icons > * {
